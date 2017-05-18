@@ -6,10 +6,7 @@
 
  :returns: 1 whether lhs > rhs, -1 whether lhs < rhs; otherwise 0.
 */
-infix operator <=> {
-    precedence 0
-    associativity none
-}
+infix operator <=>:ComparisonPrecedence
 
 func <=> <T: Comparable> (lhs: T, rhs: T) -> Int {
     if lhs > rhs {
@@ -25,17 +22,16 @@ func <=> <T: Comparable> (lhs: T, rhs: T) -> Int {
 0 <=> -5
 0 <=> 0
 
+
 /**
  Finds the minimal and maximal element in a sequence type.
  More efficient than calling min and max separately on a sequence.
  
  :returns: Tuple containing the mininal and tha maximal element of the sequence
 */
-
-extension SequenceType where Generator.Element : Comparable {
-    @warn_unused_result
-    public func minMaxElement() -> (Self.Generator.Element, Self.Generator.Element)? {
-        var it = self.generate()
+extension Sequence where Iterator.Element : Comparable {
+    public func minMaxElement() -> (Self.Iterator.Element, Self.Iterator.Element)? {
+        var it = self.makeIterator()
         guard var min = it.next() else { return nil }
         var max = min
         

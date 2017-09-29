@@ -14,8 +14,8 @@ RUN apt-get update && apt-get upgrade -y --no-install-recommends \
  	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ARG SWIFT_PLATFORM=ubuntu16.04
-ARG SWIFT_BRANCH=swift-3.1.1-release
-ARG SWIFT_VERSION=swift-3.1.1-RELEASE
+ARG SWIFT_BRANCH=swift-4.0-release
+ARG SWIFT_VERSION=swift-4.0-RELEASE
 
 ENV SWIFT_PLATFORM=$SWIFT_PLATFORM \
     SWIFT_BRANCH=$SWIFT_BRANCH \

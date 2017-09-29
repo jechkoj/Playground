@@ -1,11 +1,11 @@
 /**
  Compares two numbers lhs and rhs.
-
+ 
  :param: lhs numerical value.
  :param: rhs numerical value.
-
+ 
  :returns: 1 whether lhs > rhs, -1 whether lhs < rhs; otherwise 0.
-*/
+ */
 infix operator <=>:ComparisonPrecedence
 
 func <=> <T: Comparable> (lhs: T, rhs: T) -> Int {
@@ -28,7 +28,7 @@ func <=> <T: Comparable> (lhs: T, rhs: T) -> Int {
  More efficient than calling min and max separately on a sequence.
  
  :returns: Tuple containing the mininal and tha maximal element of the sequence
-*/
+ */
 extension Sequence where Iterator.Element : Comparable {
     public func minMaxElement() -> (Self.Iterator.Element, Self.Iterator.Element)? {
         var it = self.makeIterator()
